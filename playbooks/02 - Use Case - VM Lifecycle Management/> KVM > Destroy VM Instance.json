@@ -193,8 +193,7 @@
                 "resource": {
                     "logs": "| Hypervisor Report |\n| --- |\n{%- for line in vars.cmd_result.replace('\\r','').split('\\n') if line.strip() %}\n  | > {{ line|trim }}|\n{%- endfor %}\n\n| NGFW Report |\n| --- |\n|{{vars.steps.Remove_Internet_Access_If_Exists.status}}|\n",
                     "status": "\/api\/3\/picklists\/87e8de7b-4ca7-41f2-b3ee-bc367faf489c",
-                    "destroyedOn": "{{globalVars.Current_Date}}",
-                    "networkInterfaces": "{{None}}"
+                    "destroyedOn": "{{globalVars.Current_Date}}"
                 },
                 "operation": "Append",
                 "collection": "{{vars.input.records[0]['@id']}}",
@@ -287,8 +286,8 @@
     ],
     "groups": [],
     "priority": "\/api\/3\/picklists\/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
-    "playbookOrigin": "\/api\/3\/picklists\/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
-    "isEditable": true,
+    "playbookOrigin": "\/api\/3\/picklists\/b6d710a9-a8ec-41ec-8817-fe9fa062fcdd",
+    "isEditable": false,
     "uuid": "2b0c8f7b-7383-43dd-9d55-2990744e62f9",
     "owners": [],
     "isPrivate": false,

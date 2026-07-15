@@ -67,6 +67,7 @@
                 "version": "3.7.0",
                 "connector": "cyops_utilities",
                 "operation": "make_cyops_request",
+                "ignore_errors": true,
                 "operationTitle": "FSR: Make FortiSOAR API Call",
                 "step_variables": []
             },
@@ -186,6 +187,7 @@
                 "from_str": "admin@example.com",
                 "connector": "smtp",
                 "operation": "send_email",
+                "ignore_errors": true,
                 "operationTitle": "Send Email",
                 "step_variables": []
             },
@@ -271,6 +273,7 @@
             "description": null,
             "arguments": {
                 "resource": {
+                    "logs": "VM Provisioning request is rejected by {{vars.approver_email}}",
                     "status": "\/api\/3\/picklists\/abce2612-5ab6-41b8-808b-0f8291adb747"
                 },
                 "_showJson": false,
@@ -390,8 +393,8 @@
     ],
     "groups": [],
     "priority": "\/api\/3\/picklists\/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
-    "playbookOrigin": "\/api\/3\/picklists\/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
-    "isEditable": true,
+    "playbookOrigin": "\/api\/3\/picklists\/b6d710a9-a8ec-41ec-8817-fe9fa062fcdd",
+    "isEditable": false,
     "uuid": "d1c0d347-8bf3-4d18-a31b-e19a90fd68a9",
     "owners": [],
     "isPrivate": false,

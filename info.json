@@ -1,10 +1,38 @@
 {
-    "fsrMinCompatibility": "7.2.0",
-    "date": "2026-06-25T05:27:37+00:00",
-    "exported_from": "fortisoar",
-    "exported_by": "CS Admin",
+    "name": "vMLifecycleManagement",
+    "version": "1.0.0",
+    "fsrMinCompatibility": "7.6.5",
+    "type": "solutionpack",
+    "local": true,
+    "label": "VM Lifecycle Management",
+    "contributor": "Naili.M, Michael Ibe, Pallavi M",
+    "dependencies": [
+        {
+            "name": "sOARFramework",
+            "type": "solutionpack",
+            "label": "SOAR Framework",
+            "minVersion": null
+        }
+    ],
+    "prerequisite": "# Connectors:\n- DNS\n- Proxmox\n- FortiGate\n- SSH (To KVM as root)\n- SMTP\n- Code Snippet\n- IMAP\n- Active Directory\n- Google Gemini\n# Widgets\nPlaybook Buttons Widget\n\n# Other settings\nSetup Default Email Sender",
+    "publisher": "Community",
+    "description": "Manage VM requests for KVM and Proxmox Hypervisors",
+    "help": null,
+    "category": [
+        "Compute Platform"
+    ],
+    "supportInfo": null,
+    "iconLarge": "images/large.png",
+    "postInstallConfig": null,
+    "recordTags": [
+        "CloudOps"
+    ],
+    "date": "2026-07-15T08:19:26+00:00",
     "contents": {
         "picklistNames": [
+            {
+                "name": "Hypervisor"
+            },
             {
                 "name": "VM Status"
             },
@@ -17,7 +45,7 @@
                 "name": "Network Interfaces",
                 "apiName": "network_interfaces"
             },
-            "": {
+            "v_m_instances": {
                 "name": "VM Instances",
                 "apiName": "v_m_instances"
             }
@@ -66,11 +94,6 @@
                 "name": "Full App Permissions"
             }
         ],
-        "actors": [
-            {
-                "name": "atlas numid"
-            }
-        ],
         "globalVariables": [
             {
                 "name": "infrastructure_team_email",
@@ -78,51 +101,54 @@
                 "default_value": "cloud-ops@fortielab.com"
             },
             {
-                "name": "Server_fqhn",
-                "value": "es13-fs0.fortielab.com:21443",
-                "default_value": "master.fortisoar.in"
+                "name": "VM_Lifecycle_Management_Hypervisor",
+                "value": "KVM",
+                "default_value": "KVM"
             },
             {
                 "name": "Current_Date",
                 "value": "{{arrow.utcnow().timestamp}}",
                 "default_value": "{{arrow.utcnow().timestamp}}"
+            },
+            {
+                "name": "Server_fqhn",
+                "value": "pod7.fortielab.com:21443",
+                "default_value": "master.fortisoar.in"
             }
         ],
         "playbooks": [
             {
-                "name": "02 - VM Lifecycle Management"
+                "name": "02 - Use Case - VM Lifecycle Management"
             }
         ],
         "connectors": [
             {
                 "name": "Active Directory",
-                "apiName": "activedirectory",
-                "version": "2.4.0"
+                "apiName": "activedirectory"
+            },
+            {
+                "name": "Code Snippet",
+                "apiName": "code-snippet"
             },
             {
                 "name": "DNS",
-                "apiName": "dns",
-                "version": "1.0.0"
+                "apiName": "dns"
             },
             {
                 "name": "Fortinet FortiGate",
-                "apiName": "fortigate-firewall",
-                "version": "5.4.0"
+                "apiName": "fortigate-firewall"
             },
             {
                 "name": "Fortinet FortiMail",
-                "apiName": "fortinet-fortimail",
-                "version": "1.2.1"
+                "apiName": "fortinet-fortimail"
             },
             {
                 "name": "Google Gemini",
-                "apiName": "google-bard",
-                "version": "2.1.0"
+                "apiName": "google-bard"
             },
             {
                 "name": "IMAP",
-                "apiName": "imap",
-                "version": "3.5.8"
+                "apiName": "imap"
             },
             {
                 "name": "Proxmox VE Hypervisor",
@@ -131,18 +157,17 @@
             },
             {
                 "name": "SMTP",
-                "apiName": "smtp",
-                "version": "2.6.0"
+                "apiName": "smtp"
             },
             {
                 "name": "SSH",
-                "apiName": "ssh",
-                "version": "2.1.2"
-            },
+                "apiName": "ssh"
+            }
+        ],
+        "widgets": [
             {
-                "name": "VirusTotal",
-                "apiName": "virustotal",
-                "version": "3.2.1"
+                "apiName": "playbookButtons",
+                "name": "Playbook Buttons"
             }
         ]
     }
